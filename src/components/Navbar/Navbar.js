@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 const Navbar = ({ isSticky = false }) => {
   return (
     <nav
-      className={`text-2xs  ${isSticky && "bg-black/15 text-white fixed top-0"} shadow w-full`}
+      className={`text-2xs  ${isSticky ? "bg-black/15 text-white fixed " : "sticky  bg-white"} shadow w-full  top-0 z-50 backdrop-blur-[1px]`}
     >
       <MobileNav />
       <DesktopNav />

@@ -10,3 +10,75 @@
   --breakpoint-md: 950px;
   --breakpoint-lg: 1025px;
 }
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE and old Edge */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+}
+
+.hero-slider .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 15px !important;
+}
+
+/* sabka fixed size */
+.hero-slider .swiper-pagination-bullet {
+  width: 24px;
+  height: 24px;
+  margin: 0 !important;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* inactive dot */
+.hero-slider .swiper-pagination-bullet::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* active circle */
+.hero-slider .swiper-pagination-bullet-active {
+  background: transparent;
+  border: 1px solid white;
+  animation: fillCircle 3s linear forwards;
+}
+
+/* hover par hollow */
+.hero-slider .swiper-pagination-bullet:hover::before {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border: 1px solid white;
+}
+
+/* active progress animation */
+@keyframes fillCircle {
+  0% {
+    transform: scale(0.2);
+  }
+
+  100% {
+    transform: scale(0.8);
+  }
+}
