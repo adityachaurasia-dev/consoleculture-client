@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar/Navbar";
 
-export default function NavbarWrapper() {
+const NavbarWrapper = () => {
   const pathname = usePathname();
 
   const isSticky = ["/"].includes(pathname);
@@ -11,4 +11,6 @@ export default function NavbarWrapper() {
   if (isSticky) return <Navbar isSticky={true} />;
 
   return <Navbar />;
-}
+};
+
+export default NavbarWrapper;
