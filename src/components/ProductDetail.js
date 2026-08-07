@@ -25,7 +25,7 @@ const ProductDetail = ({ sizeVariation = [] }) => {
   `}
           >
             {!available && (
-              <span className="absolute inset-0c flex items-center justify-center pointer-events-none">
+              <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="absolute w-[140%] border-t border-gray-300 rotate-45"></span>
               </span>
             )}
