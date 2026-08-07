@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
 import localFont from "next/font/local";
-import NavbarWrapper from "@/components/NavbarWrapper.js";
+import NavbarWrapper from "@/components/NavbarWrapper";
 
 const culture = localFont({
   src: [
