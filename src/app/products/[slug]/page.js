@@ -1,34 +1,39 @@
 import ListDroper from "@/components/ListDroper";
 import ProductDetail from "@/components/ProductDetail";
+import ProductSlider from "@/components/ProductSlider";
 import { PRODUCTS } from "@/data/Product";
 
 const Product = async ({ params }) => {
   const { slug } = await params;
 
   const product = PRODUCTS.find((product) => product.slug === slug);
-  const { images, title, discountPrice, originalPrice } = product;
 
   if (!product) {
     return <div>Product not found</div>;
   }
 
+  const { images, title, discountPrice, originalPrice, variation } = product;
+
   return (
     <>
       <div className="flex flex-col md:flex-row">
-        <div className="md:w-[70%] w-full md:grid md:grid-cols-2 md:gap-1 md:p-1">
+        <div className="w-[70%] md:grid grid-cols-2 gap-1 p-1 hidden">
           {images.map((img, index) => (
             <img src={img} key={index} />
           ))}
         </div>
+        <div className="w-full md:hidden">
+          <ProductSlider items={images} />
+        </div>
         <div className="md:w-[30%] w-full">
-          <div className="md:sticky md:top-20 md:self-auto px-8 py-6 gap-6 flex flex-col">
+          <div className="md:sticky md:top-20 md:self-auto md:px-8 px-3 py-6 gap-6 flex flex-col ">
             <h1>{title}</h1>
-            <div className="flex gap-4 text-sm items-center">
+            <div className="flex gap-4 text-xs md:text-sm items-center">
               <span className="opacity-70 line-through text-red-600">
                 RS.{originalPrice.toFixed(2)}
               </span>
               <span>RS.{discountPrice.toFixed(2)}</span>
-              <div className="bg-red-600 text-white font-bold items-center text-3xs flex px-2 py-1 rounded-sm">
+              <div className="bg-red-600 text-white font-bold items-center text-3xs flex px-2 py-1 rounded-sm ">
                 Save{" "}
                 {(
                   ((originalPrice - discountPrice) / originalPrice) *
@@ -37,7 +42,7 @@ const Product = async ({ params }) => {
                 %
               </div>
             </div>
-            <ProductDetail></ProductDetail>
+            <ProductDetail sizeVariation={variation} />
             <button className="text-sm w-full border border-black py-3 hover:bg-black hover:text-white">
               ADD TO CART
             </button>

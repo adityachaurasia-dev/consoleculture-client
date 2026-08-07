@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className="text-xs">{title}</div>
-      <div className="text-2xs flex justify-between">
+      <div className="text-3xs md:text-xs flex justify-between">
         <span className="opacity-70 line-through text-red-600">
           RS.{originalPrice.toFixed(2)}
         </span>
