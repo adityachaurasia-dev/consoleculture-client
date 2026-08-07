@@ -33,7 +33,9 @@ const ListDroper = ({ title, lists, isFooter = false }) => {
         className={`text-3xs flex flex-col gap-5 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "h-auto opacity-100 mt-5" : "max-h-0 opacity-0 mt-0"} ${isFooter && " md:max-h-none md:opacity-100 md:mt-5 md:overflow-visible md:items-center"}`}
       >
         {lists.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index} className="text-justify leading-relaxed">
+            {item}
+          </li>
         ))}
       </ul>
     </div>
